@@ -28,13 +28,15 @@ def gensyl(): #generate a syllable
 			vowel = vowels[randint(0,(len(vowels)-1))]+vowels[randint(0,(len(vowels)-1))]
 		return vowel
 
-def genword(n): #generate a full word of n syllables
+def wordgen(): #generate a full word of n syllables
+	n = randint(1,3)
 	word = ""
 	for i in range(n):
 		word+=gensyl()
 	return word
-
+"""
 if len(sys.argv) > 1 and sys.argv[1] == "short":
 	print(genword(1))
 else:
 	print(genword(randint(1,3)))
+"""
