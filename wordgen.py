@@ -1,8 +1,8 @@
 from random import randint
 import sys
 
-consonants = ['m', 'f', 'r', 'g', 'k', 'kh', 'h', 't', 'p', 'th', 's', 'sh', 'b', 'v', 'd', 'ch', 'l', 'll', 'q', 'zh']
-vowels = ['a','e','u','o','i','y']
+consonants = ['m', 'f', 'r', 'g', 'k', 'h', 't', 'p', 'th', 's', 'sh', 'b', 'v', 'd', 'tsh', 'l', 'zh', 'dzh']
+vowels = ['a','e','u','o','i']
 
 # dipthongs create:
 #  oe, ae, au, etc, double letters are long, y is pronounced as Finnish y
@@ -28,15 +28,12 @@ def gensyl(): #generate a syllable
 			vowel = vowels[randint(0,(len(vowels)-1))]+vowels[randint(0,(len(vowels)-1))]
 		return vowel
 
-def wordgen(): #generate a full word of n syllables
-	n = randint(1,3)
+def wordgen(a): #generate a full word of n syllables
+	n = randint(1,a)
 	word = ""
 	for i in range(n):
 		word+=gensyl()
 	return word
-"""
-if len(sys.argv) > 1 and sys.argv[1] == "short":
-	print(genword(1))
-else:
-	print(genword(randint(1,3)))
-"""
+
+if len(sys.argv) > 1 and sys.argv[1] == "-s":
+	print(wordgen(1))

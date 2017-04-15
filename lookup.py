@@ -1,6 +1,7 @@
 import wordgen
 import random
 import fileinput
+from random import randint
 
 dictionary = open("dictionary.txt", 'a+')
 dictionary.seek(0)
@@ -21,7 +22,7 @@ def check(w):
 def getWord(query):
     if check(query.replace(" ", "-").lower()):
         dictionary.seek(0)
-        newword = wordgen.wordgen()
+        newword = wordgen.wordgen(randint(1, 4))
         while newword in allwords:
             print("Alert: 001")
             newword = wordgen.wordgen()
